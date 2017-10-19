@@ -4,8 +4,8 @@ It allows the user to sign in and log in to their respective accounts and then c
 
 ### Prerequisites
 This website will require Mongodb and any editor or an IDE will suffice. 
-Additional requirements specific to the python environment are mentioned in requirements.txt
-I used PyCharm for the development purpose.
+Additional requirements specific to the python environment are mentioned in requirements.txt.
+PyCharm was used for this project. 
 
 ### Installation
 Installation of python dependencies for your local python environment can be done using pip as shown below:
