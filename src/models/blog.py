@@ -32,7 +32,7 @@ class Blog(object):
             'author':self.author,
             'title':self.title,
             'description':self.description,
-            'author_id':self.id
+            'author_id':self.author_id
         }
 
     @classmethod

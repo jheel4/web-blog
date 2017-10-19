@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="#">Fancy Blogs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Blogs <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <br>
+    <h4>{{email}}'s Blogs</h4><br>
+    <a href="/blogs/new" role="button" class="btn btn-primary">Create a New Blog!</a>
+    <br><br>
+    {% for blog in blogs %}
+        <h4><a href="/posts/{{ blog._id }}">{{ blog.title }}</a></h4>
+        <p>{{ blog.description }}</p>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

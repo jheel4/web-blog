@@ -19,10 +19,9 @@ class User(object):
 
     @classmethod
     def get_by_id(cls,id):
-        data = Database.find_one('users',{'_id'})
+        data = Database.find_one('users',{'_id':id})
         if data is not None:
             return cls(**data)
-        return None
 
     @staticmethod
     def login_valid(email,password):
@@ -42,13 +41,9 @@ class User(object):
             user = cls(email=email,password=password)
             user.save_to_mongo()
             session['email'] = email
-            return {
-                'success':'User profile created'
-            }
+            return True
         else:
-            return {
-                'error':'User already exists'
-            }
+            return False
 
     @staticmethod
     def login(user_email):
@@ -74,7 +69,6 @@ class User(object):
 
     def save_to_mongo(self):
         Database.insert('users',self.json())
-
 
     def new_blog(self,description,title):
         blog=Blog(author=self.email,description=description,title=title,author_id=self._id)

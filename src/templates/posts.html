@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <a class="navbar-brand" href="#">Fancy Blogs</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/blogs">Blogs <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<div class="container">
+    <br>
+    <h4>{{blog_title}}</h4></br>
+    <a class="btn btn-primary" href="/posts/new/{{blog_id}}" role="button">Create a new Post</a>
+    </br><br>
+    {% if posts == [] %}
+        <p><em>There are <strong>no</strong> posts in the blog currently!</em></p>
+    {% else %}
+        <br>
+        {% for post in posts %}
+            <p>{{post.created_date}}</p>
+            <br>
+            <h4>{{ post.title }}</h4>
+            <p>{{ post.content }}</p>
+            <p>{{ post.author }}</p>
+            <hr>
+        {% endfor %}
+    {% endif %}
+</div>
+{% endblock %}

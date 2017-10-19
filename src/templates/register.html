@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+  <a class="navbar-brand" href="#">Fancy Blogs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Sign up <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/login">Log in</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="register-page container">
+    <form id="register-form" action="/auth/register" method="post">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="abcdef@email.com" name="email" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="123!#abc" name="password" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-success">Sign up</button>
+    </form>
+</div>
+{% endblock %}
